@@ -9,22 +9,11 @@
  */
 
 import React from 'react';
-import {
-  SafeAreaView,
-  StyleSheet,
-  ScrollView,
-  View,
-  Text,
-  StatusBar,
-} from 'react-native';
+import {SafeAreaView, StyleSheet, View, Text, StatusBar} from 'react-native';
 
-import {
-  Header,
-  LearnMoreLinks,
-  Colors,
-  DebugInstructions,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
+import {ReloadInstructions} from 'react-native/Libraries/NewAppScreen';
+
+import {t} from 'react-native-tailwindcss';
 
 declare const global: {HermesInternal: null | {}};
 
@@ -33,8 +22,19 @@ const App = () => {
     <>
       <StatusBar barStyle="dark-content" />
       <SafeAreaView style={styles.safeAV}>
-        <View>
-          <Text style={styles.helloWorld}>Hello World!</Text>
+        <View
+          style={[
+            t.flex,
+            t.justifyCenter,
+            t.roundedLg,
+            t.bgGray500,
+            t.overflowHidden,
+            t.itemsCenter,
+            t.mT8,
+          ]}>
+          <Text style={[t.text4xl, t.bgRed300, t.roundedLg, t.pX4, t.pY2]}>
+            Hello World!
+          </Text>
         </View>
       </SafeAreaView>
     </>
