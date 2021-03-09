@@ -17,8 +17,7 @@ type LoginFormProps = {
 
 export const Login = () => {
   const {control, handleSubmit, errors} = useForm<LoginFormProps>();
-  const onSubmit = (data: LoginFormProps) =>
-    console.log(data);
+  const onSubmit = (data: LoginFormProps) => console.log(data);
 
   return (
     <View style={tailwind('flex justify-center min-h-full p-2')}>
@@ -32,11 +31,12 @@ export const Login = () => {
           render={({onBlur, onChange, value}) => (
             <TextInput
               style={tailwind(
-                'px-4 py-3 my-2 border border-red-300 bg-gray-200',
+                'px-4 py-3 my-2 border border-blue-300 bg-gray-200',
               )}
               placeholder="Username"
               value={value}
               onBlur={onBlur}
+              autoCapitalize="none"
               onChangeText={(value) => onChange(value)}
             />
           )}
@@ -54,7 +54,7 @@ export const Login = () => {
           render={({onBlur, onChange, value}) => (
             <TextInput
               style={tailwind(
-                'px-4 py-3 border my-2 border-red-300 bg-gray-200',
+                'px-4 py-3 border my-2 border-blue-300 bg-gray-200',
               )}
               placeholder="Password"
               value={value}
