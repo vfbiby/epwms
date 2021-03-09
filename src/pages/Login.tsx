@@ -18,7 +18,7 @@ type LoginFormProps = {
 export const Login = () => {
   const {control, handleSubmit, errors} = useForm<LoginFormProps>();
   const onSubmit = (data: LoginFormProps) =>
-    Alert.alert(data.username.toString());
+    console.log(data);
 
   return (
     <View style={tailwind('flex justify-center min-h-full p-2')}>
@@ -37,7 +37,7 @@ export const Login = () => {
               placeholder="Username"
               value={value}
               onBlur={onBlur}
-              onChange={(value) => onChange(value)}
+              onChangeText={(value) => onChange(value)}
             />
           )}
         />
@@ -59,13 +59,15 @@ export const Login = () => {
               placeholder="Password"
               value={value}
               onBlur={onBlur}
-              onChange={(value) => onChange(value)}
+              textContentType="password"
+              secureTextEntry={true}
+              onChangeText={(value) => onChange(value)}
             />
           )}
         />
         {errors.password && <Text>Password is required!</Text>}
       </View>
-      <TouchableOpacity style={tailwind('bg-blue-300 py-3')}>
+      <TouchableOpacity style={tailwind('bg-blue-300 py-3 mt-4')}>
         <Button onPress={handleSubmit(onSubmit)} title="登录" />
       </TouchableOpacity>
     </View>
