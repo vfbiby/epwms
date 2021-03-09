@@ -1237,6 +1237,11 @@
   resolved "https://registry.npm.taobao.org/@types/prop-types/download/@types/prop-types-15.7.3.tgz#2ab0d5da2e5815f94b0b9d4b95d1e5f243ab2ca7"
   integrity sha1-KrDV2i5YFflLC51LldHl8kOrLKc=
 
+"@types/qs@^6.9.6":
+  version "6.9.6"
+  resolved "https://registry.npm.taobao.org/@types/qs/download/@types/qs-6.9.6.tgz?cache=0&sync_timestamp=1615109351276&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2F%40types%2Fqs%2Fdownload%2F%40types%2Fqs-6.9.6.tgz#df9c3c8b31a247ec315e6996566be3171df4b3b1"
+  integrity sha1-35w8izGiR+wxXmmWVmvjFx30s7E=
+
 "@types/react-native@^0.63.2":
   version "0.63.48"
   resolved "https://registry.npm.taobao.org/@types/react-native/download/@types/react-native-0.63.48.tgz#83ebffe2900b8dee7e420bad9d8d0efea86efe92"
@@ -5800,6 +5805,11 @@ punycode@^2.1.0, punycode@^2.1.1:
   version "2.1.1"
   resolved "https://registry.npm.taobao.org/punycode/download/punycode-2.1.1.tgz#b58b010ac40c22c5657616c8d2c2c02c7bf479ec"
   integrity sha1-tYsBCsQMIsVldhbI0sLALHv0eew=
+
+qs@^6.9.6:
+  version "6.9.6"
+  resolved "https://registry.npm.taobao.org/qs/download/qs-6.9.6.tgz?cache=0&sync_timestamp=1610598227383&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fqs%2Fdownload%2Fqs-6.9.6.tgz#26ed3c8243a431b2924aca84cc90471f35d5a0ee"
+  integrity sha1-Ju08gkOkMbKSSsqEzJBHHzXVoO4=
 
 qs@~6.5.2:
   version "6.5.2"

@@ -9,25 +9,32 @@ type RootStackParamList = {
   Login: undefined;
 };
 
+interface RootStackProps {
+  userToken: string | null;
+}
+
 let Stack = createStackNavigator<RootStackParamList>();
 
-export const Navigator = () => {
+export const Navigator = ({state}: {state: RootStackProps}) => {
   return (
     <NavigationContainer>
       <Stack.Navigator
         screenOptions={{
           headerTitleAlign: 'center',
         }}>
-        <Stack.Screen
-          name="Login"
-          options={{headerTitle: '登录'}}
-          component={Login}
-        />
-        <Stack.Screen
-          name="Home"
-          options={{headerTitle: '首页'}}
-          component={Home}
-        />
+        {state.userToken === null ? (
+          <Stack.Screen
+            name="Login"
+            options={{headerTitle: '登录'}}
+            component={Login}
+          />
+        ) : (
+          <Stack.Screen
+            name="Home"
+            options={{headerTitle: '首页'}}
+            component={Home}
+          />
+        )}
       </Stack.Navigator>
     </NavigationContainer>
   );

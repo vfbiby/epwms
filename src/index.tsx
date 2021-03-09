@@ -1,3 +1,13 @@
+import React from 'react';
 import {Navigator} from './navigator/index';
+import {AppProvider} from './context';
 
-export default Navigator;
+const App = () => {
+  return (
+    <AppProvider>
+      <Navigator state={{userToken: null}} />
+    </AppProvider>
+  );
+};
+
+export default App;
