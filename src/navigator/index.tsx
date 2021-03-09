@@ -3,6 +3,7 @@ import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 import {Home} from '../pages/Home';
 import {Login} from '../pages/Login';
+import {useAuth} from '../utils/use-auth';
 
 type RootStackParamList = {
   Home: undefined;
@@ -15,14 +16,16 @@ interface RootStackProps {
 
 let Stack = createStackNavigator<RootStackParamList>();
 
-export const Navigator = ({state}: {state: RootStackProps}) => {
+export const Navigator = () => {
+  const {user} = useAuth();
+
   return (
     <NavigationContainer>
       <Stack.Navigator
         screenOptions={{
           headerTitleAlign: 'center',
         }}>
-        {state.userToken === null ? (
+        {user?.token === null ? (
           <Stack.Screen
             name="Login"
             options={{headerTitle: '登录'}}
