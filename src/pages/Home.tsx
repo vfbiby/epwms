@@ -1,7 +1,5 @@
 import React from 'react';
 import {SafeAreaView, View, Text, StatusBar} from 'react-native';
-import Config from 'react-native-config';
-
 import {t} from 'react-native-tailwindcss';
 
 export const Home = () => {
@@ -83,9 +81,6 @@ export const Home = () => {
                 <Text style={[t.mT2, t.textSm]}>验货</Text>
               </View>
             </View>
-          </View>
-          <View>
-            <Text>{Config.API_URL}</Text>
           </View>
         </View>
       </SafeAreaView>

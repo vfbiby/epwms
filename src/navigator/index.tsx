@@ -10,10 +10,6 @@ type RootStackParamList = {
   Login: undefined;
 };
 
-interface RootStackProps {
-  userToken: string | null;
-}
-
 let Stack = createStackNavigator<RootStackParamList>();
 
 export const Navigator = () => {

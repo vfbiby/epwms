@@ -5,7 +5,7 @@ import {AppProvider} from './context';
 const App = () => {
   return (
     <AppProvider>
-      <Navigator state={{userToken: null}} />
+      <Navigator />
     </AppProvider>
   );
 };
