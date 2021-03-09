@@ -3,7 +3,6 @@ import {
   Text,
   TextInput,
   Button,
-  Alert,
   TouchableOpacity,
 } from 'react-native';
 import React from 'react';
@@ -17,17 +16,25 @@ type LoginFormProps = {
 
 export const Login = () => {
   const {control, handleSubmit, errors} = useForm<LoginFormProps>();
-  const onSubmit = (data: LoginFormProps) => console.log(data);
+  const onSubmit = (data: LoginFormProps) => {
+    fetch('http://pda.erppre.com/api/user/login', {
+      method: 'POST',
+      headers: {
+        'content-type': 'application/json',
+      },
+      body: JSON.stringify(data),
+    }).then(async (data) => console.log(await data.json()));
+  };
 
   return (
     <View style={tailwind('flex justify-center min-h-full p-2')}>
       <View style={tailwind('py-2')}>
-        <Text style={tailwind('uppercase')}>用户名: </Text>
+        <Text style={tailwind('py-2')}>用户名: </Text>
         <Controller
           control={control}
           name="username"
           rules={{required: true}}
-          defaultValue=""
+          defaultValue="15336551131@mh"
           render={({onBlur, onChange, value}) => (
             <TextInput
               style={tailwind(
@@ -50,7 +57,7 @@ export const Login = () => {
           control={control}
           name="password"
           rules={{required: true}}
-          defaultValue=""
+          defaultValue="zhang2021pwd"
           render={({onBlur, onChange, value}) => (
             <TextInput
               style={tailwind(
