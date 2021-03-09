@@ -7,7 +7,7 @@ import {
   TouchableOpacity,
   Image,
 } from 'react-native';
-import {t, tailwind} from 'react-native-tailwindcss';
+import {t} from 'react-native-tailwindcss';
 import {useAuth} from '../utils/use-auth';
 
 export const Home = () => {
@@ -40,7 +40,6 @@ export const Home = () => {
             </View>
             <TouchableOpacity
               onPress={() => {
-                console.log('lgout');
                 logout();
               }}
               style={[

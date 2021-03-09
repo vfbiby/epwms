@@ -21,7 +21,7 @@ export const Navigator = () => {
         screenOptions={{
           headerTitleAlign: 'center',
         }}>
-        {user?.token === null ? (
+        {!user?.token ? (
           <Stack.Screen
             name="Login"
             options={{headerTitle: '登录'}}

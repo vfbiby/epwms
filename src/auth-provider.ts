@@ -3,8 +3,14 @@ import {User, Form} from './context/auth-context';
 
 export const localStorageKey = '__auth_provider_token__';
 
-const handleUserResponsed = ({user, token}: {user: User; token: string}) => {
-  AsyncStorage.setItem(localStorageKey, token || '');
+const handleUserResponsed = async ({
+  user,
+  token,
+}: {
+  user: User;
+  token: string;
+}) => {
+  await AsyncStorage.setItem(localStorageKey, token || '');
   return user;
 };
 
@@ -19,7 +25,7 @@ export const login = async (data: Form) => {
     if (!response.ok) {
       return Promise.reject(await response.json());
     }
-    return handleUserResponsed((await response.json())['data']);
+    return handleUserResponsed(await response.json());
   });
 };
 

@@ -1,13 +1,9 @@
-import {
-  View,
-  Text,
-  TextInput,
-  Button,
-  TouchableOpacity,
-} from 'react-native';
+import {View, Text, TextInput, Button, TouchableOpacity} from 'react-native';
 import React from 'react';
 import tailwind from 'tailwind-rn';
 import {useForm, Controller} from 'react-hook-form';
+import {useAsync} from '../utils/use-async';
+import {useAuth} from '../utils/use-auth';
 
 type LoginFormProps = {
   username: string;
@@ -16,14 +12,12 @@ type LoginFormProps = {
 
 export const Login = () => {
   const {control, handleSubmit, errors} = useForm<LoginFormProps>();
+  const {run} = useAsync();
+  const {login} = useAuth();
   const onSubmit = (data: LoginFormProps) => {
-    fetch('http://pda.erppre.com/api/user/login', {
-      method: 'POST',
-      headers: {
-        'content-type': 'application/json',
-      },
-      body: JSON.stringify(data),
-    }).then(async (data) => console.log(await data.json()));
+    run(login(data), {throwOnError: true}).catch(() => {
+      throw new Error('Login failed!');
+    });
   };
 
   return (
@@ -56,8 +50,8 @@ export const Login = () => {
         <Controller
           control={control}
           name="password"
+          defaultValue=""
           rules={{required: true}}
-          defaultValue="zhang2021pwd"
           render={({onBlur, onChange, value}) => (
             <TextInput
               style={tailwind(
