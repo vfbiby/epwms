@@ -10,7 +10,7 @@
 
 import React from 'react';
 import {SafeAreaView, View, Text, StatusBar} from 'react-native';
-import Config from "react-native-config";
+import Config from 'react-native-config';
 
 import {t} from 'react-native-tailwindcss';
 
@@ -94,9 +94,9 @@ const App = () => {
               </View>
             </View>
           </View>
-        </View>
-        <View>
-          <Text>{Config.API_URL}</Text>
+          <View>
+            <Text>{Config.API_URL}</Text>
+          </View>
         </View>
       </SafeAreaView>
     </>
