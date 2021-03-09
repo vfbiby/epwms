@@ -1,14 +1,3 @@
-import {View, SafeAreaView, Text} from 'react-native';
-import React from 'react';
+import {Navigator} from './navigator/index';
 
-const App = () => {
-  return (
-    <SafeAreaView>
-      <View>
-        <Text>App</Text>
-      </View>
-    </SafeAreaView>
-  );
-};
-
-export default App;
+export default Navigator;
