@@ -10,6 +10,7 @@
 
 import React from 'react';
 import {SafeAreaView, View, Text, StatusBar} from 'react-native';
+import Config from "react-native-config";
 
 import {t} from 'react-native-tailwindcss';
 
@@ -19,7 +20,15 @@ const App = () => {
       <StatusBar barStyle="dark-content" />
       <SafeAreaView style={[t.bgGray300, t.minHFull]}>
         <View style={[t.pX4]}>
-          <View style={[t.pY4, t.flex, t.pX4, t.itemsCenter, t.flexRow, t.justifyBetween]}>
+          <View
+            style={[
+              t.pY4,
+              t.flex,
+              t.pX4,
+              t.itemsCenter,
+              t.flexRow,
+              t.justifyBetween,
+            ]}>
             <View style={[t.w1_2]}>
               <View>
                 <Text style={[t.text2xl]}>古道东风破</Text>
@@ -85,6 +94,9 @@ const App = () => {
               </View>
             </View>
           </View>
+        </View>
+        <View>
+          <Text>{Config.API_URL}</Text>
         </View>
       </SafeAreaView>
     </>
