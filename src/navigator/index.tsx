@@ -18,7 +18,11 @@ export const Navigator = () => {
         screenOptions={{
           headerTitleAlign: 'center',
         }}>
-        <Stack.Screen name="Home" component={Home} />
+        <Stack.Screen
+          name="Home"
+          options={{headerTitle: '首页'}}
+          component={Home}
+        />
         <Stack.Screen name="Detail" component={Detail} />
       </Stack.Navigator>
     </NavigationContainer>
