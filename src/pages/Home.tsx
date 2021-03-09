@@ -1,8 +1,19 @@
 import React from 'react';
-import {SafeAreaView, View, Text, StatusBar} from 'react-native';
-import {t} from 'react-native-tailwindcss';
+import {
+  SafeAreaView,
+  View,
+  Text,
+  StatusBar,
+  TouchableOpacity,
+  Image,
+} from 'react-native';
+import {t, tailwind} from 'react-native-tailwindcss';
+import {useAuth} from '../utils/use-auth';
 
 export const Home = () => {
+  const {logout, user} = useAuth();
+  console.log(user);
+
   return (
     <>
       <StatusBar barStyle="dark-content" />
@@ -27,7 +38,22 @@ export const Home = () => {
                 </Text>
               </View>
             </View>
-            <View style={[t.w12, t.h12, t.roundedFull, t.bgRed300]}></View>
+            <TouchableOpacity
+              onPress={() => {
+                console.log('lgout');
+                logout();
+              }}
+              style={[
+                t.w12,
+                t.h12,
+                t.roundedFull,
+                t.overflowHidden,
+                t.bgRed300,
+              ]}>
+              {user?.avatar && (
+                <Image style={[t.h12, t.w12]} source={{uri: user.avatar}} />
+              )}
+            </TouchableOpacity>
           </View>
           <View style={[t.bgGray100, t.p4, t.roundedLg]}>
             <Text style={[t.textGray600]}>发货 / 出库</Text>
@@ -80,6 +106,9 @@ export const Home = () => {
                 <View style={[t.h12, t.w12, t.roundedLg, t.bgYellow400]}></View>
                 <Text style={[t.mT2, t.textSm]}>验货</Text>
               </View>
+            </View>
+            <View>
+              <Text>{user?.token}</Text>
             </View>
           </View>
         </View>

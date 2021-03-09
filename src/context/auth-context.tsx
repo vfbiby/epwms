@@ -9,7 +9,7 @@ export interface User {
   name: string;
   email: string;
   token: string;
-  avator_url?: string;
+  avatar?: string;
 }
 
 export interface Form {
