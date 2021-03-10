@@ -15,8 +15,8 @@ export const Login = () => {
   const {run} = useAsync();
   const {login} = useAuth();
   const onSubmit = (data: LoginFormProps) => {
-    run(login(data), {throwOnError: true}).catch(() => {
-      throw new Error('Login failed!');
+    run(login(data), {throwOnError: true}).catch((error) => {
+      console.log(error);
     });
   };
 

@@ -27,7 +27,7 @@ export const client = async (
 
   return fetch(endpoint, defaultConfig).then(async (response) => {
     if (response.status === 401) {
-      Auth.logout();
+      await Auth.logout();
       //return Promise.reject('Please re-authenticate.');
       return new Error('Please re-authenticate.');
     }

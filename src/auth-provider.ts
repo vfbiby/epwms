@@ -15,7 +15,7 @@ const handleUserResponsed = async ({
 };
 
 export const login = async (data: Form) => {
-  return fetch('/login', {
+  return fetch('http://pda.erppre.com/api/user/login', {
     method: 'POST',
     headers: {
       'Content-Type': 'Application/json',
