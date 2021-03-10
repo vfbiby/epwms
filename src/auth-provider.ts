@@ -3,14 +3,8 @@ import {User, Form} from './context/auth-context';
 
 export const localStorageKey = '__auth_provider_token__';
 
-const handleUserResponsed = async ({
-  user,
-  token,
-}: {
-  user: User;
-  token: string;
-}) => {
-  await AsyncStorage.setItem(localStorageKey, token || '');
+const handleUserResponsed = async (user: User) => {
+  await AsyncStorage.setItem(localStorageKey, user.token || '');
   return user;
 };
 
@@ -34,5 +28,5 @@ export async function getToken() {
 }
 
 export async function logout() {
-  await AsyncStorage.removeItem(localStorageKey);
+  return await AsyncStorage.removeItem(localStorageKey);
 }

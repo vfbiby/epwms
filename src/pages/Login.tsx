@@ -1,4 +1,11 @@
-import {View, Text, TextInput, Button, TouchableOpacity} from 'react-native';
+import {
+  View,
+  Text,
+  TextInput,
+  Button,
+  TouchableOpacity,
+  Alert,
+} from 'react-native';
 import React from 'react';
 import tailwind from 'tailwind-rn';
 import {useForm, Controller} from 'react-hook-form';
@@ -15,8 +22,8 @@ export const Login = () => {
   const {run} = useAsync();
   const {login} = useAuth();
   const onSubmit = (data: LoginFormProps) => {
-    run(login(data), {throwOnError: true}).catch((error) => {
-      console.log(error);
+    run(login(data), {throwOnError: true}).catch((error: Error) => {
+      Alert.alert(error.message);
     });
   };
 
@@ -50,7 +57,7 @@ export const Login = () => {
         <Controller
           control={control}
           name="password"
-          defaultValue=""
+          defaultValue="zhang2021pwd"
           rules={{required: true}}
           render={({onBlur, onChange, value}) => (
             <TextInput
