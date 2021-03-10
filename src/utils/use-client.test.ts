@@ -8,21 +8,6 @@ import fetchMock from 'fetch-mock';
 jest.mock('./use-auth');
 const spyClient = jest.spyOn(Http, 'client');
 
-fetchMock.config.overwriteRoutes = false;
-//fetchMock.get('/me', {
-  //status: 200,
-  //data: {
-    //user: {
-      //id: 1,
-      //name: 'bb',
-      //email: '3432@qq.com',
-      //avator_url:
-        //'https://thirdwx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTLy3Vy8eiaLz8aDCIktUfcqpW1fIfv8w6DX0krO2NcA0SpgN7XwembK8Kk5TNtt6ZDDJkeazDy3OBA/132',
-    //},
-    //token: 'valid-token',
-  //},
-//});
-
 describe('useClient', () => {
   beforeEach(() => {
     updateAuthContext();
@@ -112,7 +97,13 @@ describe('useClient', () => {
     });
   });
 
-  it.skip('should get response when call returned client', async function () {
+  it('should get response when call returned client', async function () {
+    fetchMock.get('/me', {
+      email: '3432@qq.com',
+      id: 1,
+      name: 'bb',
+      token: 'valid-token',
+    });
     spyClient.mockRestore();
     const {result} = renderHook(() => useClient());
     const resPromise = result.current('/me').then();
