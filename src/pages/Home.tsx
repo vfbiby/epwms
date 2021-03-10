@@ -9,7 +9,6 @@ import {
 } from 'react-native';
 import {t} from 'react-native-tailwindcss';
 import {useAuth} from '../utils/use-auth';
-import {AccessAsyncStorage} from '../component/access_async_storage';
 
 export const Home = () => {
   const {logout, user} = useAuth();
@@ -107,11 +106,7 @@ export const Home = () => {
                 <Text style={[t.mT2, t.textSm]}>验货</Text>
               </View>
             </View>
-            <View>
-              <Text>{user?.token}</Text>
-            </View>
           </View>
-          <AccessAsyncStorage />
         </View>
       </SafeAreaView>
     </>
