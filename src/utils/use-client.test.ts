@@ -106,7 +106,7 @@ describe('useClient', () => {
     });
     spyClient.mockRestore();
     const {result} = renderHook(() => useClient());
-    const resPromise = result.current('/me').then();
+    const resPromise = result.current('/me');
 
     expect(await resPromise).toStrictEqual({
       email: '3432@qq.com',
