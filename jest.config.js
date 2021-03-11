@@ -17,6 +17,7 @@ module.exports = {
   // from the above linked tutorial's config:
   cacheDirectory: '.jest/cache',
   setupFiles: ['./jestSetupFile.js'],
+  setupFilesAfterEnv: ['@testing-library/jest-native/extend-expect'],
   preset: 'react-native',
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json', 'node'],
 };

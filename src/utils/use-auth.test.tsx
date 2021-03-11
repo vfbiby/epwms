@@ -14,7 +14,6 @@ describe('useAuth', () => {
         token: 'valid-token',
       },
       login: (form: Form) => Promise.resolve(),
-      logout: () => {},
     };
     const wrapper = ({children}: {children: ReactNode}) => (
       <AuthContext.Provider value={authContext}>
