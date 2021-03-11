@@ -1,10 +1,11 @@
+import 'react-native';
 import React, {ReactNode} from 'react';
 import {renderHook} from '@testing-library/react-hooks';
 import {AuthContext, Form} from '../context/auth-context';
 import {useAuth} from './use-auth';
 
 describe('useAuth', () => {
-  it.skip('should get context value from ancestor', () => {
+  it('should get context value from ancestor', () => {
     const authContext = {
       user: {
         id: 1,
