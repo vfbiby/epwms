@@ -12,11 +12,8 @@ describe('useAuth', () => {
         email: '3432@qq.com',
         token: 'valid-token',
       },
-      login: function (form: Form) {
-        form;
-        return Promise.resolve();
-      },
-      logout: function () {},
+      login: (form: Form) => Promise.resolve(),
+      logout: () => {},
     };
     const wrapper = ({children}: {children: ReactNode}) => (
       <AuthContext.Provider value={authContext}>
